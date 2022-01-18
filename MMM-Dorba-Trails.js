@@ -115,7 +115,7 @@ Module.register("MMM-Dorba-Trails", {
             var lastCheckTd = document.createElement("td");
 
             nameTd.innerHTML = t.name;
-            statusTd.innerHTML = t.statusOpen;
+            statusTd.innerHTML = t.statusOpen ? '<i class="fas fa-check-circle"></i>' : '<i class="far fa-times-circle"></i>';
             lastCheckTd.innerHTML = t.lastCheck;
             nameTd.className += " medium regular bright";
             statusTd.className += " medium light normal";
