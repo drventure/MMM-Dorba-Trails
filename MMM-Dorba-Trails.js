@@ -9,7 +9,7 @@ Module.register("MMM-Dorba-Trails", {
     defaults: {
         url: "https://www.trailforks.com/widgets/region_list/?rids={trailIDs}&cols=title,status,city_title,last_report_ts",
         trailIDs: "3723,19031,5025",
-        refInterval: 1000 * 60 * 60, //once an hour
+        refInterval: 1000 * 60 * 60 * 6, //once every 6 hours
         basicHeader: false,
         //trail status url
         //https://www.trailforks.com/widgets/region_list/?rids=35629,3719,13783,3726,5016,22007,13746,14710,22005,22065,5025,5022,3723,19612,24208,33774,33812,25637,19031,5018,13750,13751,34284,5020,24408,5021,17590,23481,3717,13827,13829,28103,24406,45471,38370&rows=75&w=600px&h=1200px&cols=title,status,city_title,last_report_ts
@@ -61,6 +61,7 @@ Module.register("MMM-Dorba-Trails", {
 
     //Handle node helper response
     socketNotificationReceived: function (notification, payload) {
+        Log.info("Dorba Trails: received notification " + notification);
         if (notification === "TRAIL_STATUS") {
             this.results = payload;
             this.loaded = true;
@@ -82,6 +83,11 @@ Module.register("MMM-Dorba-Trails", {
         //Display loading while waiting for API response
         if (!this.loaded) {
             wrapper.innerHTML = "Loading...";
+            return wrapper;
+        }
+
+        if (this.results.trails.length == 0) {
+            wrapper.innerHTML = "Unavailable<br>" + this.results.error;
             return wrapper;
         }
 
