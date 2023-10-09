@@ -1,5 +1,5 @@
 {
-  "name": "MMM-Dorba-Trails",
+  "name": "mmm-dorba-trails",
   "version": "1.0.0",
   "description": "A Simple Module for MagicMirror2 designed to parse Dorba Mountain Bike Trail status",
   "main": "MMM-Dorba-Trails.js",
