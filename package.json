@@ -1,16 +1,18 @@
 {
   "name": "mmm-dorba-trails",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A Simple Module for MagicMirror² designed to parse Dorba Mountain Bike Trail status",
   "main": "MMM-Dorba-Trails.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": ">=18"
+  },
   "keywords": [],
-  "author": "",
+  "author": "drventure",
   "license": "ISC",
   "dependencies": {
-    "bent": "^7.3.12",
     "jsdom": "^22.1.0"
   }
 }
